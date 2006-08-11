@@ -1,0 +1,48 @@
+diff -ur RutilTv0.11/include/ErrorsCode.h RutilTv0.11/include/ErrorsCode.h
+--- RutilTv0.11/include/ErrorsCode.h	2006-08-03 17:54:20.000000000 +0200
++++ RutilTv0.11/include/ErrorsCode.h	2006-08-11 18:22:02.045154500 +0200
+@@ -18,6 +18,8 @@
+ /** \file ErrorsCode.h
+     \author Romain BONDUE
+     \date 05/07/2005 */
++#include "/usr/include/linux/errno.h"
++
+ #ifndef __ERRORSCODE_H__
+ #define __ERRORSCODE_H__
+ 
+diff -ur RutilTv0.11/lib/src/GtkGUI.cxx RutilTv0.11/lib/src/GtkGUI.cxx
+--- RutilTv0.11/lib/src/GtkGUI.cxx	2006-08-06 18:49:17.000000000 +0200
++++ RutilTv0.11/lib/src/GtkGUI.cxx	2006-08-11 18:24:28.638316000 +0200
+@@ -18,6 +18,8 @@
+ /** \file GtkGUI.cxx
+     \author Romain BONDUE
+     \date 23/07/2005 */
++#include "/usr/include/linux/errno.h"
++
+ #include <sstream>
+ #include <algorithm> // find()
+ #include <vector>
+diff -ur RutilTv0.11/lib/src/UserData.cxx RutilTv0.11/lib/src/UserData.cxx
+--- RutilTv0.11/lib/src/UserData.cxx	2006-08-03 17:54:20.000000000 +0200
++++ RutilTv0.11/lib/src/UserData.cxx	2006-08-11 18:23:43.747510500 +0200
+@@ -18,6 +18,8 @@
+ /** \file UserData.cxx
+     \author Romain BONDUE
+     \date 03/08/2005 */
++#include "/usr/include/linux/errno.h"
++
+ #include <fstream>
+ #include <sstream>
+ #include <cstdlib> // getenv()
+diff -ur RutilTv0.11/lib/src/WE17Driver.cxx RutilTv0.11/lib/src/WE17Driver.cxx
+--- RutilTv0.11/lib/src/WE17Driver.cxx	2006-08-06 18:49:17.000000000 +0200
++++ RutilTv0.11/lib/src/WE17Driver.cxx	2006-08-11 18:23:52.652067000 +0200
+@@ -20,6 +20,8 @@
+     \date 05/07/2005
+     \note Many functions here could have been "inline", but since they are also
+           "virtual", it's almost useless. */
++#include "/usr/include/linux/errno.h"
++
+ #include <sstream>
+ #include <cmath> // pow()
+ #include <cstring> // strncpy()

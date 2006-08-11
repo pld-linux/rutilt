@@ -1,0 +1,11 @@
+--- RutilTv0.11/configure.sh~	2006-08-06 18:49:17.000000000 +0200
++++ RutilTv0.11/configure.sh	2006-08-11 21:59:22.736146750 +0200
+@@ -137,7 +137,7 @@
+ rutilt_name=rutilt
+ rutilt_prefix=$prefix/bin/
+ helper_name=rutilt_helper
+-helper_prefix=$prefix/share/rutilt/
++helper_prefix=$prefix/lib/rutilt/
+ ip_script_name=set_ip.sh
+ ip_script_prefix=$prefix/share/rutilt/
+ user_config_name=/rutilt/
