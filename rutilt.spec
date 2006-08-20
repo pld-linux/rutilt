@@ -4,7 +4,7 @@
 # - figure out what's wrong with the helper
 #
 Summary:	Wireless devices configuration tool, with extra support for Ralink chipsets
-#Summary(pl):	-
+Summary(pl):	Narzêdzie do konfiguracji urz±dzeñ bezprzewodowych z dodatkow± obs³ug± uk³adów Ralink
 Name:		rutilt
 Version:	0.11
 Release:	0.1
@@ -17,14 +17,18 @@ Patch0:		%{name}-errno.patch
 Patch1:		%{name}-FHS.patch
 URL:		http://cbbk.free.fr/bonrom/
 BuildRequires:	gtk+2-devel
+# ??? FIXME
 BuildRequires:	kernel-headers
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-RutilT - wireless devices configuration tool, with extra support for Ralink chipsets.
+RutilT - wireless devices configuration tool, with extra support for
+Ralink chipsets.
 
-#%description -l pl
+%description -l pl
+RutilT - narzêdzie do konfiguracji urz±dzeñ bezprzewodowych z
+dodatkow± obs³ug± uk³adów Ralink.
 
 %prep
 %setup -q -n RutilTv%{version}
