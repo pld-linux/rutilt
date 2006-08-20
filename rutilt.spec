@@ -1,5 +1,7 @@
 #
 # TODO:
+# - don't check for sudo at build time
+# - is ugly hack from errno patch still necessary?
 # - desktop
 # - figure out what's wrong with the helper
 #
@@ -16,10 +18,9 @@ Source0:	RutilTv%{version}.tar.gz
 Patch0:		%{name}-errno.patch
 Patch1:		%{name}-FHS.patch
 URL:		http://cbbk.free.fr/bonrom/
-BuildRequires:	gtk+2-devel >= 2.0
+BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	libstdc++-devel
-# ??? FIXME
-BuildRequires:	kernel-headers
+BuildRequires:	linux-libc-headers
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -38,6 +39,7 @@ dodatkow± obs³ug± uk³adów Ralink.
 
 %build
 ./configure.sh \
+	--kernel_sources=/usr \
 	--launcher=/usr/bin/sudo \
 	--prefix=%{_prefix}
 %{__make} \
