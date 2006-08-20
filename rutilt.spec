@@ -16,7 +16,8 @@ Source0:	RutilTv%{version}.tar.gz
 Patch0:		%{name}-errno.patch
 Patch1:		%{name}-FHS.patch
 URL:		http://cbbk.free.fr/bonrom/
-BuildRequires:	gtk+2-devel
+BuildRequires:	gtk+2-devel >= 2.0
+BuildRequires:	libstdc++-devel
 # ??? FIXME
 BuildRequires:	kernel-headers
 BuildRequires:	pkgconfig
@@ -39,17 +40,18 @@ dodatkow± obs³ug± uk³adów Ralink.
 ./configure.sh \
 	--launcher=/usr/bin/sudo \
 	--prefix=%{_prefix}
-%{__make}
+%{__make} \
+	OPTIONS="%{rpmcflags} -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_libdir}/rutilt
 
 %{__make} install \
-	RUTILT_PREFIX=$RPM_BUILD_ROOT%{_bindir}/ \
-	HELPER_PREFIX=$RPM_BUILD_ROOT%{_libdir}/rutilt/ \
-	IP_SCRIPT_PREFIX=$RPM_BUILD_ROOT%{_datadir}/rutilt/ \
-	ICON_PREFIX=$RPM_BUILD_ROOT%{_datadir}/rutilt/ \
+	RUTILT_PREFIX=$RPM_BUILD_ROOT%{_bindir} \
+	HELPER_PREFIX=$RPM_BUILD_ROOT%{_libdir}/rutilt \
+	IP_SCRIPT_PREFIX=$RPM_BUILD_ROOT%{_datadir}/rutilt \
+	ICON_PREFIX=$RPM_BUILD_ROOT%{_datadir}/rutilt \
 	HELPER_MODE=755
 install rutilt_helper $RPM_BUILD_ROOT%{_libdir}/rutilt
 
