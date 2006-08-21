@@ -1,22 +1,20 @@
 #
 # TODO:
 # - don't check for sudo at build time
-# - is ugly hack from errno patch still necessary?
 # - desktop
-# - figure out what's wrong with the helper
+# - figure out what's wrong with the helper (sudo rutilt suggested for now)
 #
 Summary:	Wireless devices configuration tool, with extra support for Ralink chipsets
 Summary(pl):	Narzêdzie do konfiguracji urz±dzeñ bezprzewodowych z dodatkow± obs³ug± uk³adów Ralink
 Name:		rutilt
 Version:	0.11
-Release:	0.1
+Release:	0.2
 License:	GPL v2
 Group:		Applications
 #Source0:	http://cbbk.free.fr/bonrom/?download=RutilTv%{version}.tar.gz
 Source0:	RutilTv%{version}.tar.gz
 # Source0-md5:	3048a06ad59390e97d7af2cf0668c438
-Patch0:		%{name}-errno.patch
-Patch1:		%{name}-FHS.patch
+Patch0:		%{name}-FHS.patch
 URL:		http://cbbk.free.fr/bonrom/
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	libstdc++-devel
@@ -35,7 +33,6 @@ dodatkow± obs³ug± uk³adów Ralink.
 %prep
 %setup -q -n RutilTv%{version}
 %patch0 -p1
-%patch1 -p1
 
 %build
 ./configure.sh \
