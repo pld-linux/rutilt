@@ -1,6 +1,5 @@
 #
 # TODO:
-# - don't check for sudo at build time
 # - desktop
 # - figure out what's wrong with the helper (sudo rutilt suggested for now)
 #
@@ -8,7 +7,7 @@ Summary:	Wireless devices configuration tool, with extra support for Ralink chip
 Summary(pl):	Narzêdzie do konfiguracji urz±dzeñ bezprzewodowych z dodatkow± obs³ug± uk³adów Ralink
 Name:		rutilt
 Version:	0.11
-Release:	0.2
+Release:	0.3
 License:	GPL v2
 Group:		Applications
 #Source0:	http://cbbk.free.fr/bonrom/?download=RutilTv%{version}.tar.gz
@@ -37,7 +36,7 @@ dodatkow± obs³ug± uk³adów Ralink.
 %build
 ./configure.sh \
 	--kernel_sources=/usr \
-	--launcher=/usr/bin/sudo \
+	--launcher=disabled \
 	--prefix=%{_prefix}
 %{__make} \
 	OPTIONS="%{rpmcflags} -Wall"
@@ -52,7 +51,6 @@ install -d $RPM_BUILD_ROOT%{_libdir}/rutilt
 	IP_SCRIPT_PREFIX=$RPM_BUILD_ROOT%{_datadir}/rutilt \
 	ICON_PREFIX=$RPM_BUILD_ROOT%{_datadir}/rutilt \
 	HELPER_MODE=755
-install rutilt_helper $RPM_BUILD_ROOT%{_libdir}/rutilt
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -62,5 +60,3 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS README INSTALL
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
-%dir %{_libdir}/%{name}
-%attr(755,root,root) %{_libdir}/%{name}/*
