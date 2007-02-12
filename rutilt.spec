@@ -4,7 +4,7 @@
 # - figure out what's wrong with the helper (sudo rutilt suggested for now)
 #
 Summary:	Wireless devices configuration tool, with extra support for Ralink chipsets
-Summary(pl):	Narzêdzie do konfiguracji urz±dzeñ bezprzewodowych z dodatkow± obs³ug± uk³adów Ralink
+Summary(pl.UTF-8):   NarzÄ™dzie do konfiguracji urzÄ…dzeÅ„ bezprzewodowych z dodatkowÄ… obsÅ‚ugÄ… ukÅ‚adÃ³w Ralink
 Name:		rutilt
 Version:	0.12
 Release:	0.1
@@ -25,9 +25,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 RutilT - wireless devices configuration tool, with extra support for
 Ralink chipsets.
 
-%description -l pl
-RutilT - narzêdzie do konfiguracji urz±dzeñ bezprzewodowych z
-dodatkow± obs³ug± uk³adów Ralink.
+%description -l pl.UTF-8
+RutilT - narzÄ™dzie do konfiguracji urzÄ…dzeÅ„ bezprzewodowych z
+dodatkowÄ… obsÅ‚ugÄ… ukÅ‚adÃ³w Ralink.
 
 %prep
 %setup -q -n RutilTv%{version}
