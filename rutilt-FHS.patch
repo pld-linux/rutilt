@@ -1,11 +1,20 @@
---- RutilTv0.11/configure.sh~	2006-08-06 18:49:17.000000000 +0200
-+++ RutilTv0.11/configure.sh	2006-08-11 21:59:22.736146750 +0200
-@@ -137,7 +137,7 @@
- rutilt_name=rutilt
- rutilt_prefix=$prefix/bin/
- helper_name=rutilt_helper
--helper_prefix=$prefix/share/rutilt/
-+helper_prefix=$prefix/lib/rutilt/
+--- RutilTv0.15/configure.sh.orig	2007-06-30 19:28:16.000000000 +0200
++++ RutilTv0.15/configure.sh	2007-11-25 09:59:29.000000000 +0100
+@@ -18,7 +18,7 @@
+ #
+ #
+ # Variables :
+-prefix=/usr/local
++prefix=/usr
+ launcher=
+ helper_mode=4755
+ makefile_target='$(RUTILT_NAME) $(HELPER_NAME)'
+@@ -33,7 +33,7 @@
  ip_script_name=set_ip.sh
- ip_script_prefix=$prefix/share/rutilt/
+ ip_script_prefix=share/rutilt/
+ helper_launcher_name=helper_launcher.sh
+-helper_launcher_prefix=share/rutilt/
++helper_launcher_prefix=lib/rutilt/
  user_config_name=/rutilt/
+ user_config_prefix=/.config/
+ icon_prefix=share/rutilt/
