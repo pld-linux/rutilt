@@ -1,20 +1,25 @@
---- RutilTv0.15/configure.sh.orig	2007-06-30 19:28:16.000000000 +0200
-+++ RutilTv0.15/configure.sh	2007-11-25 09:59:29.000000000 +0100
+diff -uNr RutilTv0.16orig/configure.sh RutilTv0.16/configure.sh
+--- RutilTv0.16orig/configure.sh	2007-11-25 20:40:50.000000000 +0100
++++ RutilTv0.16/configure.sh	2008-03-20 19:36:13.000000000 +0100
 @@ -18,7 +18,7 @@
  #
  #
  # Variables :
 -prefix=/usr/local
-+prefix=/usr
++prefix=/usr/
  launcher=
  helper_mode=4755
  makefile_target='$(RUTILT_NAME) $(HELPER_NAME)'
-@@ -33,7 +33,7 @@
+@@ -31,10 +31,10 @@
+ helper_name=rutilt_helper
+ helper_prefix=bin/
  ip_script_name=set_ip.sh
- ip_script_prefix=share/rutilt/
+-data_prefix=share/apps/rutilt/
++data_prefix=share/rutilt/
+ ip_script_prefix=$data_prefix
  helper_launcher_name=helper_launcher.sh
--helper_launcher_prefix=share/rutilt/
-+helper_launcher_prefix=lib/rutilt/
- user_config_name=/rutilt/
+-helper_launcher_prefix=$data_prefix
++helper_launcher_prefix=lib/rutilt
+ user_config_name=rutilt/
  user_config_prefix=/.config/
- icon_prefix=share/rutilt/
+ # There's a distinction between menu icons and the other arts.
