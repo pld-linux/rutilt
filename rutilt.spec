@@ -6,13 +6,13 @@
 Summary:	Wireless devices configuration tool, with extra support for Ralink chipsets
 Summary(pl.UTF-8):	Narzędzie do konfiguracji urządzeń bezprzewodowych z dodatkową obsługą układów Ralink
 Name:		rutilt
-Version:	0.15
-Release:	0.1
+Version:	0.16
+Release:	1
 License:	GPL v2
 Group:		Applications
 #Source0:	http://cbbk.free.fr/bonrom/?download=RutilTv%{version}.tar.gz
 Source0:	RutilTv%{version}.tar.gz
-# Source0-md5:	2a3858a24d0a1affa4b12c87e7015716
+# Source0-md5:	745fd6e87576513a6455fa085ad98e72
 Patch0:		%{name}-FHS.patch
 URL:		http://cbbk.free.fr/bonrom/
 BuildRequires:	gtk+2-devel >= 2:2.6.0
@@ -37,7 +37,8 @@ dodatkową obsługą układów Ralink.
 ./configure.sh \
 	--kernel_sources=%{_prefix} \
 	--launcher=disabled \
-	--prefix=%{_prefix}
+	--prefix=%{_prefix} \
+
 %{__make} \
 	OPTIONS="%{rpmcflags} -Wall"
 
@@ -49,13 +50,27 @@ install -d $RPM_BUILD_ROOT%{_libdir}/rutilt
 	RUTILT_PREFIX=$RPM_BUILD_ROOT%{_bindir} \
 	HELPER_PREFIX=$RPM_BUILD_ROOT%{_libdir}/rutilt \
 	IP_SCRIPT_PREFIX=$RPM_BUILD_ROOT%{_datadir}/rutilt \
-	ICON_PREFIX=$RPM_BUILD_ROOT%{_pixmapsdir}/rutilt \
-	DESKTOP_LAUNCHER_PREFIX=$RPM_BUILD_ROOT%{_datadir}/applications \
-	RUTILT_MAN_PREFIX=$RPM_BUILD_ROOT%{_mandir}/man1 \
+	DATA_PREFIX=$RPM_BUILD_ROOT%{_datadir}/rutilt \
+	ICON_16X16_PREFIX=$RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps \
+	ICON_32X32_PREFIX=$RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps \
+	ICON_48X48_PREFIX=$RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/apps \
+	ICON_64X64_PREFIX=$RPM_BUILD_ROOT%{_iconsdir}/hicolor/64x64/apps \
+	ICON_128X128_PREFIX=$RPM_BUILD_ROOT%{_iconsdir}/hicolor/128x128/apps \
+	DESKTOP_LAUNCHER_PREFIX=$RPM_BUILD_ROOT%{_desktopdir} \
+	MAN_PREFIX=$RPM_BUILD_ROOT%{_mandir}/man1 \
 	HELPER_MODE=755
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%update_desktop_database_postun
+%update_icon_cache hicolor
+
+%postun
+%update_desktop_database_postun
+%update_icon_cache hicolor
+
 
 %files
 %defattr(644,root,root,755)
@@ -64,5 +79,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_desktopdir}/rutilt.desktop
 %{_mandir}/man1/rutilt.1*
-%dir %{_pixmapsdir}/%{name}
-%{_pixmapsdir}/%{name}/*.png
+%{_mandir}/man1/rutilt_helper.1*
+%{_iconsdir}/hicolor/*/*/*.png
