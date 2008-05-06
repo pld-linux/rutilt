@@ -10,8 +10,7 @@ Version:	0.16
 Release:	1
 License:	GPL v2
 Group:		Applications
-#Source0:	http://cbbk.free.fr/bonrom/files/RutilTv%{version}.tar.gz
-Source0:	RutilTv%{version}.tar.gz
+Source0:	http://cbbk.free.fr/bonrom/files/RutilTv%{version}.tar.gz
 # Source0-md5:	745fd6e87576513a6455fa085ad98e72
 Patch0:		%{name}-FHS.patch
 URL:		http://cbbk.free.fr/bonrom/
