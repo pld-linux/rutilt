@@ -6,12 +6,12 @@
 Summary:	Wireless devices configuration tool, with extra support for Ralink chipsets
 Summary(pl.UTF-8):	Narzędzie do konfiguracji urządzeń bezprzewodowych z dodatkową obsługą układów Ralink
 Name:		rutilt
-Version:	0.16
+Version:	0.18
 Release:	1
 License:	GPL v2
 Group:		Applications
-Source0:	http://cbbk.free.fr/bonrom/files/RutilTv%{version}.tar.gz
-# Source0-md5:	745fd6e87576513a6455fa085ad98e72
+Source0:	http://bonrom.cbbknet.com/files/RutilTv%{version}.tar.gz
+# Source0-md5:	c745af9fbadd3a843b6f8273b6eb71bd
 Patch0:		%{name}-FHS.patch
 URL:		http://cbbk.free.fr/bonrom/
 BuildRequires:	gtk+2-devel >= 2:2.6.0
