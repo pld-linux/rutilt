@@ -36,10 +36,10 @@ dodatkową obsługą układów Ralink.
 ./configure.sh \
 	--kernel_sources=%{_prefix} \
 	--launcher=disabled \
-	--prefix=%{_prefix} \
+	--prefix=%{_prefix}
 
 %{__make} \
-	OPTIONS="%{rpmcflags} -Wall"
+	CFLAGS="%{rpmcflags} -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -70,10 +70,9 @@ rm -rf $RPM_BUILD_ROOT
 %update_desktop_database_postun
 %update_icon_cache hicolor
 
-
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS README INSTALL
+%doc AUTHORS README INSTALL art/COPYING
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
 %{_desktopdir}/rutilt.desktop
