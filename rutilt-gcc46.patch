@@ -1,0 +1,11 @@
+--- RutilTv0.18/include/WE17Driver.h~	2006-12-22 20:49:27.000000000 +0100
++++ RutilTv0.18/include/WE17Driver.h	2012-02-11 16:16:28.382369456 +0100
+@@ -104,7 +104,7 @@
+                                                 throw (nsErrors::CSystemExc);
+         CFreq GetMatchingFreq (unsigned, double = 0) const throw();
+ 
+-        mutable ::iwreq_data& m_Data;
++        ::iwreq_data& m_Data;
+ 
+ 
+       private :
